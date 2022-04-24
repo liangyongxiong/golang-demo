@@ -4,9 +4,11 @@ metadata:
   labels:
     app: nginx
   name: nginx-service
-  namespace: nginx
+  #namespace: nginx
+  namespace: lyx-prj-jnrpm7np
+
 spec:
-  #type: NodePort
+  type: NodePort
   ports:
   - port: 9000
     name: nginx-service80

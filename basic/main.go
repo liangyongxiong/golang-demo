@@ -109,6 +109,11 @@ func TestJson() {
 	}`
 	fmt.Printf("all ages of friends: %v\n", gjson.Get(json_content, "friends.#.age"))
 	fmt.Printf("age of first friend: %d\n", gjson.Get(json_content, "friends.0.age").Int())
+
+    for _, friend := range gjson.Get(json_content, "friends").Array() {
+        fmt.Println(friend)
+        fmt.Println(friend.Get("last_name"))
+    }
 }
 
 func TestHtml() {
@@ -404,22 +409,17 @@ func TestExcel() {
 	}
 }
 
-func TestGoworker() {
-
-}
-
 func main() {
-	TestReflect()
-	TestFlag()
+	//TestReflect()
+	//TestFlag()
 	TestJson()
-	TestHtml()
-	TestProgressbar()
+	//TestHtml()
+	//TestProgressbar()
+
 	//TestRedis()
 	//TestMysqlRaw()
 	//TestMysqlGorm()
 	//TestMongo()
 	//TestLog()
 	//TestExcel()
-	//TestGin()
-	//TestGoworker()
 }

@@ -58,5 +58,15 @@ dlv debug main.go -- --arg1 value1 --arg2 value2
 # go project layout
 
 ```
+https://github.com/golang-standards/project-layout
 https://makeoptim.com/golang/standards/project-layout
+```
+
+# go-swagger
+
+```sh
+brew tap go-swagger/go-swagger
+brew install go-swagger
+
+swagger serve ./api.json
 ```
