@@ -80,7 +80,7 @@ func RegisterNamespaceInformer(stopCh <-chan struct{}, deleteCh, updateCh chan<-
 	}
 
 	informerFactory.Start(stopCh)
-	informerFactory.WaitForCacheSync(stopCh)
+	//informerFactory.WaitForCacheSync(stopCh)
 }
 
 func RegisterDeploymentInformer(stopCh <-chan struct{}, deleteCh, updateCh chan<- int, replicas *int32) {
@@ -128,7 +128,7 @@ func RegisterDeploymentInformer(stopCh <-chan struct{}, deleteCh, updateCh chan<
 	}
 
 	informerFactory.Start(stopCh)
-	informerFactory.WaitForCacheSync(stopCh)
+	//informerFactory.WaitForCacheSync(stopCh)
 }
 
 func GetAllK8sNamespaces() *corev1.NamespaceList {

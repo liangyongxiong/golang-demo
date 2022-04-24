@@ -3,10 +3,12 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/pkg/errors"
 	"os"
+	"regexp"
 	"strconv"
 	"time"
+
+	"github.com/pkg/errors"
 
 	// reflect
 	"reflect"
@@ -16,19 +18,22 @@ import (
 
 	// json
 	"encoding/json"
+
 	"github.com/tidwall/gjson"
 
 	// http
-	"github.com/PuerkitoBio/goquery"
-	resty "github.com/go-resty/resty/v2"
 	"net/http"
 	"net/url"
+
+	"github.com/PuerkitoBio/goquery"
+	resty "github.com/go-resty/resty/v2"
 
 	// redis
 	"github.com/go-redis/redis"
 
 	// mysql
 	"database/sql"
+
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 
@@ -43,11 +48,36 @@ import (
 
 	// excel
 	"encoding/csv"
+
 	excelize "github.com/xuri/excelize/v2"
 
 	// progressbar
 	progressbar "github.com/schollz/progressbar/v3"
 )
+
+func TestRegex() {
+	contentLength := int64(753258001)
+	header := "Range: bytes=144703488-"
+	start, end := int64(0), contentLength
+	re := regexp.MustCompile(`bytes=(?P<start>(\d+)?)-(?P<end>(\d+)?)`)
+	match := re.FindStringSubmatch(header)
+	fmt.Println("----------", match, len(match))
+	fmt.Println("----------", re.SubexpNames(), len(re.SubexpNames()), re.SubexpIndex("start"), re.SubexpIndex("end"))
+	if len(match) == 0 {
+		fmt.Println("invalid byte-range header: %s", header)
+		return
+	}
+	startValue := match[re.SubexpIndex("start")]
+	if startValue != "" {
+		start, _ = strconv.ParseInt(startValue, 10, 64)
+	}
+	endValue := match[re.SubexpIndex("end")]
+	if endValue != "" {
+		end, _ = strconv.ParseInt(endValue, 10, 64)
+	}
+	fmt.Println("start=", start)
+	fmt.Println("end=", end)
+}
 
 func TestReflect() {
 	now := time.Now()
@@ -109,6 +139,11 @@ func TestJson() {
 	}`
 	fmt.Printf("all ages of friends: %v\n", gjson.Get(json_content, "friends.#.age"))
 	fmt.Printf("age of first friend: %d\n", gjson.Get(json_content, "friends.0.age").Int())
+
+	for _, friend := range gjson.Get(json_content, "friends").Array() {
+		fmt.Println(friend)
+		fmt.Println(friend.Get("last_name"))
+	}
 }
 
 func TestHtml() {
@@ -404,22 +439,18 @@ func TestExcel() {
 	}
 }
 
-func TestGoworker() {
-
-}
-
 func main() {
-	TestReflect()
-	TestFlag()
-	TestJson()
-	TestHtml()
-	TestProgressbar()
+	TestRegex()
+	//TestReflect()
+	//TestFlag()
+	//TestJson()
+	//TestHtml()
+	//TestProgressbar()
+
 	//TestRedis()
 	//TestMysqlRaw()
 	//TestMysqlGorm()
 	//TestMongo()
 	//TestLog()
 	//TestExcel()
-	//TestGin()
-	//TestGoworker()
 }

@@ -2,8 +2,17 @@
 
 ```sh
 # https://go.dev/dl/
+
+# ubuntu
 apt install -y golang
 apt install -y bison
+
+# centos
+yum install -y epel-release
+yum install -y golang
+yum install -y bison
+
+# https://github.com/moovweb/gvm
 wget -c https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer
 bash gvm-installer
 ```
@@ -58,5 +67,15 @@ dlv debug main.go -- --arg1 value1 --arg2 value2
 # go project layout
 
 ```
+https://github.com/golang-standards/project-layout
 https://makeoptim.com/golang/standards/project-layout
+```
+
+# go-swagger
+
+```sh
+brew tap go-swagger/go-swagger
+brew install go-swagger
+
+swagger serve ./api.json
 ```
