@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx
+  name: nginx-deployment
+  namespace: nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx
+        ports:
+        - containerPort: 80
+        name: nginx
+        #volumeMounts:
+        #- name: conf
+        #  mountPath: /etc/nginx/nginx.conf
+        #- name: html
+        #  mountPath: /usr/share/nginx/html
+        #- name: log
+        #  mountPath: /var/log/nginx
+      tolerations:
+      - key: "key"
+        operator: "Equal"
+        value: "nginx"
+        effect: "NoSchedule"
+      #volumes:
+      #- name: conf
+      #  hostPath:
+      #    path: /minikube-host/mount/nginx/conf/nginx.conf
+      #- name: html
+      #  hostPath:
+      #    path: /minikube-host/mount/nginx/html
+      #    type: Directory
+      #- name: log
+      #  hostPath:
+      #    path: /minikube-host/mount/nginx/logs
+      #    type: Directory

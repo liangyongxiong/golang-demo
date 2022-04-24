@@ -1,0 +1,73 @@
+# gitignore configuration
+
+### Gradle ###
+.gradle
+/build/
+/html/
+/gradle
+/gradlew
+/gradlew.bat
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### OSX ###
+*.DS_Store
+
+### VSCode ###
+.vscode
+
+### NODEJS ###
+node_modules
+package-lock.json
+
+### Python ###
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+.pytest_cache
+.coverage
+*.egg-info
+
+### Java ###
+*.class
+src/main/generated
+
+### Vim ###
+*.swp
+
+### Pid ###
+*.pid
+
+### Log ###
+nohup.out
+*.log
+
+### Gitbook ###
+_book
+
+### Project ###
+tmp
+log
+store
