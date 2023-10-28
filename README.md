@@ -1,4 +1,4 @@
-# install gvm
+# gvm usage
 
 ```sh
 # https://go.dev/dl/
@@ -15,16 +15,18 @@ yum install -y bison
 # https://github.com/moovweb/gvm
 wget -c https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer
 bash gvm-installer
-```
 
 # switch environment
-
-```sh
-gvm version
-gvm listall
+gvm list
 gvm install go1.18
 gvm use go1.18
 go version
+
+# remove environment
+gvm use go1.14
+go clean -modcache
+gvm use go1.18
+gvm uninstall go1.14
 ```
 
 # config env
