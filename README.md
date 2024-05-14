@@ -50,6 +50,13 @@ go mod init test
 cat go.mod
 ```
 
+# upgrade modules
+
+```sh
+go get -u golang.org/x/net
+go get -u all
+```
+
 # gore
 
 ```sh

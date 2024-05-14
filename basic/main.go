@@ -430,7 +430,7 @@ func TestExcel() {
 	writer.Flush()
 
 	excel_fp := excelize.NewFile()
-	index := excel_fp.NewSheet("Sheet2")
+	index, _ := excel_fp.NewSheet("Sheet2")
 	excel_fp.SetCellValue("Sheet2", "A2", "Hello world.")
 	excel_fp.SetCellValue("Sheet1", "B2", 100)
 	excel_fp.SetActiveSheet(index)

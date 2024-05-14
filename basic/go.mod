@@ -1,6 +1,6 @@
 module basic
 
-go 1.20
+go 1.21
 
 require (
 	github.com/PuerkitoBio/goquery v1.8.1
@@ -20,7 +20,6 @@ require (
 require (
 	github.com/andybalholm/cascadia v1.3.2 // indirect
 	github.com/fastly/go-utils v0.0.0-20180712184237-d95a45783239 // indirect
-	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/go-cmp v0.5.5 // indirect
 	github.com/jehiah/go-strftime v0.0.0-20171201141054-1d33003b3869 // indirect
@@ -33,6 +32,7 @@ require (
 	github.com/mattn/go-sqlite3 v2.0.3+incompatible // indirect
 	github.com/mitchellh/colorstring v0.0.0-20190213212951-d06e56a500db // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
+	github.com/montanaflynn/stats v0.0.0-20171201202039-1bf9dbcd8cbe // indirect
 	github.com/onsi/ginkgo v1.12.0 // indirect
 	github.com/onsi/gomega v1.7.1 // indirect
 	github.com/richardlehane/mscfb v1.0.4 // indirect
@@ -47,12 +47,11 @@ require (
 	github.com/xuri/efp v0.0.0-20230422071738-01f4e37c47e9 // indirect
 	github.com/xuri/nfp v0.0.0-20230503010013-3f38cdbb0b83 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a // indirect
-	golang.org/x/crypto v0.10.0 // indirect
-	golang.org/x/net v0.11.0 // indirect
+	golang.org/x/crypto v0.23.0 // indirect
+	golang.org/x/net v0.25.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
-	golang.org/x/sys v0.9.0 // indirect
-	golang.org/x/term v0.9.0 // indirect
-	golang.org/x/text v0.10.0 // indirect
+	golang.org/x/sys v0.20.0 // indirect
+	golang.org/x/term v0.20.0 // indirect
+	golang.org/x/text v0.15.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
