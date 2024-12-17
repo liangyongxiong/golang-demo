@@ -74,3 +74,4 @@ store
 
 ### Golang ###
 vendor
+go.sum
